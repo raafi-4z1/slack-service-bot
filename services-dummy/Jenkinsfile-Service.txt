@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'ACTION', defaultValue: 'status', description: 'status | start | stop | restart')
+    }
+
+    stages {
+        stage('Execute') {
+            steps {
+                script {
+                    def serviceName = 'elasticsearch.exe'
+
+                    if (params.ACTION == 'status') {
+                        powershell """
+                        try {
+                            \$svc = Get-Service -Name '${serviceName}' -ErrorAction Stop
+                            if (\$svc.Status -eq 'Running') {
+                                Write-Output 'running'
+                            } else {
+                                Write-Output 'stopped'
+                            }
+                        }
+                        catch {
+                            Write-Output 'stopped'
+                        }
+                        """
+                    }
+
+                    if (params.ACTION == 'start') {
+                        powershell """
+                        Start-Service -Name '${serviceName}'
+                        Write-Output 'started'
+                        """
+                    }
+
+                    if (params.ACTION == 'stop') {
+                        powershell """
+                        Stop-Service -Name '${serviceName}' -Force
+                        Write-Output 'stopped'
+                        """
+                    }
+
+                    if (params.ACTION == 'restart') {
+                        powershell """
+                        Restart-Service -Name '${serviceName}' -Force
+                        Write-Output 'restarted'
+                        """
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "done"
+        }
+    }
+}

@@ -1,0 +1,60 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Slack bot token accidentally cached
+.slack-token
+.slack-app-token
+
+# Environment files
+.env
+.env.*
+!env.example
+
+# Services Dummy (local only)
+services-dummy/daemon/
+
+# PID files
+*.pid
+*.seed
+
+# Build artifacts
+dist/
+build/
+
+# Cache & coverage
+.nyc_output/
+coverage/
+.jest/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode/
+.idea/
+
+# Backup / temp / swap files
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+*.bak
+*.old
+
+# Certificates / private keys
+*.pem
+*.key
+*.crt
+
+# Node repl history
+.node_repl_history

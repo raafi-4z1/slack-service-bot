@@ -10,7 +10,7 @@ const services = [
 services.forEach(svc => {
   const service = new Service({
     name: svc.name,
-    script: "C:\\Users\\901102\\Music\\slack-service-bot\\services-dummy\\dummy.js"
+    script: "...\\slack-service-bot\\services-dummy\\dummy.js"
   });
 
   service.on("uninstall", () => {

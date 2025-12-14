@@ -16,7 +16,7 @@ function installSequential(index = 0) {
   const service = new Service({
     name: svc.name,
     description: svc.description,
-    script: "C:\\Users\\901102\\Music\\slack-service-bot\\services-dummy\\dummy.js"
+    script: "...\\slack-service-bot\\services-dummy\\dummy.js"
   });
 
   service.on("install", () => {

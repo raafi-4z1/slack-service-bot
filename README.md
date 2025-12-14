@@ -13,25 +13,25 @@ Menggunakan **Slack Socket Mode**, **Jenkins REST API**, dan **permission berbas
 ```text
 src/
 │
-├── app/ # Modul utama Slack bot
-│ ├── handlers.js # Event & interaction handler (global session)
-│ ├── keyboards.js # Slack Block Kit UI builder
-│ ├── main.js # Slack App entrypoint (Socket Mode)
-│ └── workers.js # Background worker (session expiry)
+├── app/                    # Modul utama Slack bot
+│ ├── handlers.js           # Event & interaction handler (global session)
+│ ├── keyboards.js          # Slack Block Kit UI builder
+│ ├── main.js               # Slack App entrypoint (Socket Mode)
+│ └── workers.js            # Background worker (session expiry)
 │
-├── core/ # Fondasi aplikasi
-│ ├── config.js # Loader environment variables
-│ └── logger.js # Winston logger (CLI + file)
+├── core/                   # Fondasi aplikasi
+│ ├── config.js             # Loader environment variables
+│ └── logger.js             #  Winston logger (CLI + file)
 │
 ├── db/
-│ └── db.js # MySQL pool + connection test
+│ └── db.js                 # MySQL pool + connection test
 │
-├── permissions/ # Permission berbasis database
-│ ├── permissions.js # Cache + validator permission
-│ └── permissionsRepo.js # Query SQL ke tabel permission
+├── permissions/            # Permission berbasis database
+│ ├── permissions.js        # Cache + validator permission
+│ └── permissionsRepo.js    # Query SQL ke tabel permission
 │
 └── services/
-  └── api.js # Wrapper Slack API & Jenkins API
+  └── api.js                # Wrapper Slack API & Jenkins API
 ```
 
 ---
